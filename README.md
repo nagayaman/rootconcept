@@ -7,7 +7,7 @@ Before running the code, you need to install the following package in R. This pa
 install.packages("pacman")
 ```
 
-Note that the code may produce slightly different results from those shown in the manuscript, depending on the environment. For example, the author has conformed that the latest version of the Louvain method for community detection using igraph produces slightly different results. Authors use igraph 1.2.6 for the analysis in the manuscript.
+Note that the code may produce slightly different results from those shown in the manuscript, depending on your R environment. For example, the author has conformed that the latest version of the Louvain method for community detection using *igraph* produces slightly different results. Authors use *igraph* 1.2.6 for the analysis in the manuscript.
 
 
 # Folders
