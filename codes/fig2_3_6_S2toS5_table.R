@@ -38,6 +38,7 @@ df.reg = plm::pdata.frame(df.reg, index=c("mood","year"))
 
 # Standardization of variables
 df.reg = df.reg %>% 
+  mutate(n_alters = scale(n_alters)
          ,hhi = scale(hhi)
          ,tie_str = scale(tie_str)
          ,mood_tenure = scale(mood_tenure)
@@ -67,29 +68,29 @@ summary(m2)
 summary(m3)
 
 m1_tidy = tidy(m1) %>% 
-  mutate(model = "Unique Elements") %>% 
+  mutate(model = "Unique elements") %>% 
   filter(term == "dmc1" | term == "nwa1") %>% 
   relabel_predictors(c(
-    nwa1 = "Moods Expressed by N.W.A"
-    ,dmc1 = "Moods Expressed by Run-D.M.C."
+    nwa1 = "Moods expressed by N.W.A"
+    ,dmc1 = "Moods expressed by Run-D.M.C."
   )
   )
 
 m2_tidy = tidy(m2) %>% 
-  mutate(model = "Element Diversity") %>% 
+  mutate(model = "Element diversity") %>% 
   filter(term == "dmc1" | term == "nwa1") %>% 
   relabel_predictors(c(
-    nwa1 = "Moods Expressed by N.W.A"
-    ,dmc1 = "Moods Expressed by Run-D.M.C."
+    nwa1 = "Moods expressed by N.W.A"
+    ,dmc1 = "Moods expressed by Run-D.M.C."
   )
   )
 
 m3_tidy = tidy(m3) %>% 
-  mutate(model = "Tie Strentgh") %>% 
+  mutate(model = "Tie strentgh") %>% 
   filter(term == "dmc1" | term == "nwa1") %>% 
   relabel_predictors(c(
-    nwa1 = "Moods Expressed by N.W.A"
-    ,dmc1 = "Moods Expressed by Run-D.M.C."
+    nwa1 = "Moods expressed by N.W.A"
+    ,dmc1 = "Moods expressed by Run-D.M.C."
   )
   )
 
@@ -305,8 +306,8 @@ m1_tidy = tidy(reg1) %>%
   filter(term == "nw_dmc" | term == "nw_nwa"
   ) %>% 
   relabel_predictors(c(
-    nw_nwa = "Working with the N.W.A's Collaborators"
-    ,nw_dmc = "Working with the Run-D.M.C.'s Collaborators"
+    nw_nwa = "Working with the N.W.A's collaborators"
+    ,nw_dmc = "Working with the Run-D.M.C.'s collaborators"
   )
   )
 
@@ -315,8 +316,8 @@ m2_tidy = tidy(reg2) %>%
   filter(term == "nw_dmc" | term == "nw_nwa"
   ) %>% 
   relabel_predictors(c(
-    nw_nwa = "Working with the N.W.A's Collaborators"
-    ,nw_dmc = "Working with the Run-D.M.C.'s Collaborators"
+    nw_nwa = "Working with the N.W.A's collaborators"
+    ,nw_dmc = "Working with the Run-D.M.C.'s collaborators"
   )
   )
 
@@ -342,22 +343,22 @@ ggsave("Fig3.png", g, width = 12, height = 4, dpi=300)
 #######################################################################################################
 
 m1_tidy = tidy(reg1) %>% 
-  mutate(model = "Expressing the Run-D.M.C.-like Moods") %>% 
+  mutate(model = "Expressing the Run-D.M.C.-like moods") %>% 
   filter(term == "production_res_d"|term == "gang" 
   ) %>% 
   relabel_predictors(c(
-    production_res_d = "Affluent Production Resources"
-    ,gang = "Gang Affiliation"
+    production_res_d = "Atypical production resources"
+    ,gang = "Gang affiliation"
   )
   )
 
 m2_tidy = tidy(reg2) %>% 
-  mutate(model = "Expressing the N.W.A-like Moods") %>% 
+  mutate(model = "Expressing the N.W.A-like moods") %>% 
   filter(term == "production_res_d"|term == "gang" 
   ) %>% 
   relabel_predictors(c(
-    production_res_d = "Affluent Production Resources"
-    ,gang = "Gang Affiliation"
+    production_res_d = "Atypical production resources"
+    ,gang = "Gang affiliation"
   )
   )
 
@@ -375,7 +376,6 @@ g = plot_grid(g1, g2
 )
 print(g)
 ggsave("Fig6.png", g, width = 12, height = 4, dpi=300)
-
 
 
 #######################################################################################################################
