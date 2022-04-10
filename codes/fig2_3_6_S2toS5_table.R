@@ -290,6 +290,9 @@ regs = list()
 regs[["Similarity (Run-D.M.C.)"]] = reg1
 regs[["Similarity (N.W.A)"]] = reg2
 
+summary(reg1)
+summary(reg2)
+
 var_nam = c("nw_dmc" ="Run-D.M.C. networks"
             ,"nw_nwa" ="N.W.A networks"
             ,"gang" = "Gang affiliation"
