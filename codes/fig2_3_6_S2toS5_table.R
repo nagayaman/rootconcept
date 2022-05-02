@@ -257,11 +257,12 @@ var_nam = c("dmc1" = "Run-D.M.C. dummies"
             ,"popularity" = "Mood popurarity"
             ,"total_nodes" = "Total number of moods"
             ,"n_titles" = "Total number of released albums"
+            ,"(Intercept)" = "Constant"
             )
 
 rows <- tribble(~term, ~m1, ~m2, ~m3,
   "5 year cohort dummies", "Y", "Y", "Y")
-attr(rows, 'position') <- c(13, 3)
+attr(rows, 'position') <- c(15, 3)
 msummary(reg_table
              ,coef_map  = var_nam
              ,fmt = '%.2f'
